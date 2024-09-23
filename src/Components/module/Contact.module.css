@@ -1,0 +1,28 @@
+.form{
+    display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  box-shadow: #304ffe25 0px 7px 29px 0px;
+}
+
+.input input{
+    border-radius: 7px;
+    margin: 20px 10px;
+    padding: 12px 13px;
+}
+
+.button button{
+    width: calc(87% + 90px);
+    margin: 10px 0;
+    cursor: pointer;
+    background-color: #ac5afa;
+    font-size: 1rem;
+    color: white;
+    border: #462856;
+    border-radius: 5px;
+    padding: 10px;
+}

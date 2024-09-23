@@ -1,0 +1,31 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Juliet Oma",
+      "email": "julie@yahoo.com",
+      "number": "08100000000"
+    },
+    {
+      "id": 2,
+      "name": "علی محمدی",
+      "job":"مهندس",
+      "email": "jameswilly@gmail.com",
+      "number": "08111111111"
+    },
+    {
+      "id": 3,
+      "name": "احمد علی",
+      "job":"مهندس",
+      "email": "ahmedali012@gmail.com",
+      "number": "09022222222"
+    },
+    {
+      "id": 4,
+      "name": "رضا موسوی",
+      "job":"مهندس",
+      "email": "gracefunsho@gmail.com",
+      "number": "09033333333"
+    }
+  ]
+}

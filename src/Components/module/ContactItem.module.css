@@ -1,0 +1,22 @@
+.list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #c6a4e759;
+    color: #6b6b6f;
+    padding: 1px 20px;
+    margin: 15px;
+    border-radius: 10px;
+}
+
+.delete{
+    width: calc(7% + 67px);
+    margin: 10px 0;
+    cursor: pointer;
+    background-color: #ac5afa;
+    font-size: 1rem;
+    color: white;
+    border: #462856;
+    border-radius: 5px;
+    padding: 10px;
+}
