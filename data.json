@@ -2,21 +2,22 @@
   "users": [
     {
       "id": 1,
-      "name": "Juliet Oma",
+      "name": "رضا امیری",
+      "job":"نقاش ساختمان",
       "email": "julie@yahoo.com",
       "number": "08100000000"
     },
     {
       "id": 2,
       "name": "علی محمدی",
-      "job":"مهندس",
+      "job":"معلم",
       "email": "jameswilly@gmail.com",
       "number": "08111111111"
     },
     {
       "id": 3,
       "name": "احمد علی",
-      "job":"مهندس",
+      "job":"کشاورز",
       "email": "ahmedali012@gmail.com",
       "number": "09022222222"
     },

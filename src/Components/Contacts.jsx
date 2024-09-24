@@ -3,7 +3,7 @@ import { useState } from 'react'
 import styles from "./module/Contact.module.css";
 
 import ContactsList from './ContactsList';
-import inputs from '../assets/constants/inputs';
+import inputs from '../constants/inputs';
 import { v4 } from 'uuid';
 
 

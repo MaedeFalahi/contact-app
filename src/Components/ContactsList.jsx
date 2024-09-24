@@ -1,17 +1,23 @@
 import ContactItem from './ContactItem';
 
-import styles from "./module/ContactsList.module.css"
+import styles from "./module/ContactsList.module.css";
 
-function ContactsList({contacts , deleteHandler}) {
-    console.log(contacts)
+import {  useContext  } from 'react';
+import { DataContext } from "../context/UserProvider";
+
+function ContactsList({ deleteHandler}) {
+
+    const { users } = useContext(DataContext);
+console.log(users)
   return (
+    <>
     <div className='bg-gray-50 shadow-xl'>
-            {contacts.length ? (
+            {users.length ? (
                 <ul className={styles.ul}>
-                    {contacts.map((contact) => (
+                    {users.map((user) => (
                         <ContactItem
-                            key={contact.id}
-                            data={contact}
+                            key={user.id}
+                            data={user}
                             deleteHandler={deleteHandler}
                             />
                     ))}
@@ -21,6 +27,7 @@ function ContactsList({contacts , deleteHandler}) {
             )}
             
     </div>
+    </>
   )
 }
 

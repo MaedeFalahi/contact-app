@@ -10,6 +10,10 @@ function ContactItem({
     },
     deleteHandler,
 }) {
+
+
+
+
   return (
     <>
     <li className={styles.list} key={id}>
