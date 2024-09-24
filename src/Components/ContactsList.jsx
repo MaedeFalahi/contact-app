@@ -7,14 +7,15 @@ import { DataContext } from "../context/UserProvider";
 
 function ContactsList({ deleteHandler}) {
 
-    const { users } = useContext(DataContext);
-console.log(users)
+    const { userData } = useContext(DataContext);
+    
+    console.log(userData)
   return (
     <>
     <div className='bg-gray-50 shadow-xl'>
-            {users.length ? (
+            {userData.length ? (
                 <ul className={styles.ul}>
-                    {users.map((user) => (
+                    {userData.map((user) => (
                         <ContactItem
                             key={user.id}
                             data={user}

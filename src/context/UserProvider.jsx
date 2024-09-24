@@ -1,11 +1,11 @@
-import { Children , createContext , useEffect ,useState } from 'react';
+import { createContext , useEffect , useState } from "react";
 
 import axios from "axios";
 
 export const DataContext = createContext();
 
 
-function UserProvider({ Children  }) {
+function UserProvider({ children  }) {
 
     const [userData , setUserData] = useState([]);
 
@@ -17,7 +17,7 @@ function UserProvider({ Children  }) {
 
   return (
     <DataContext.Provider value={{ userData , setUserData}}>
-      { Children }
+            {children}
     </DataContext.Provider>
     )
 }

@@ -6,6 +6,7 @@ import UserProvider from './context/UserProvider'
 function App() {
 
   return (
+    
     <UserProvider>
         <Contacts />
     </UserProvider>    
