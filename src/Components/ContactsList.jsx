@@ -7,9 +7,9 @@ import { DataContext } from "../context/UserProvider";
 
 function ContactsList({ deleteHandler}) {
 
-    const { userData } = useContext(DataContext);
+    const { userData  } = useContext(DataContext);
     
-    console.log(userData)
+    // console.log(userData)
   return (
     <>
     <div className='bg-gray-50 shadow-xl'>

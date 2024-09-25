@@ -3,30 +3,30 @@
     {
       "id": 1,
       "name": "رضا امیری",
-      "job":"نقاش ساختمان",
+      "job": "نقاش ساختمان",
       "email": "julie@yahoo.com",
-      "number": "08100000000"
+      "phone": "08100000000"
     },
     {
       "id": 2,
       "name": "علی محمدی",
-      "job":"معلم",
+      "job": "معلم",
       "email": "jameswilly@gmail.com",
-      "number": "08111111111"
+      "phone": "08111111111"
     },
     {
       "id": 3,
       "name": "احمد علی",
-      "job":"کشاورز",
+      "job": "کشاورز",
       "email": "ahmedali012@gmail.com",
-      "number": "09022222222"
+      "phone": "09022222222"
     },
     {
       "id": 4,
       "name": "رضا موسوی",
-      "job":"مهندس",
+      "job": "مهندس",
       "email": "gracefunsho@gmail.com",
-      "number": "09033333333"
+      "phone": "09033333333"
     }
   ]
 }

@@ -5,6 +5,7 @@ import styles from "./module/Contact.module.css";
 import ContactsList from './ContactsList';
 import inputs from '../constants/inputs';
 import { v4 } from 'uuid';
+import api from '../services/config';
 
 
 function Contacts() {
@@ -27,30 +28,49 @@ function Contacts() {
     setContact((contact) => ({...contact , [name] : value}));
   }
 
-  const addHandler = () =>{
-    if(
-      !contact.name ||
-      !contact.email ||
-      !contact.job ||
-      !contact.phone 
-    ){
-        setAlert("فیلد نمیتواند خالی باشد");
-        return
-    }
-    setAlert("");
-    const newContact = { ...contact, id:v4()};
-    setContacts((contacts) => [...contacts , newContact]);
-    setContact({
-      name:"",
-      email:"",
-      job:"",
-      phone:"",
-    });
-    }
+  const userData = {
+    name: contact.name,
+    job: contact.job,
+    email: contact.email,
+    phone: contact.phone,
+  };
+
+  const addHandler = (e) =>{
+    e.preventDefault();
+    api
+    .post("/users" ,{userData})
+    .then((res) => setContact(res.data))
+    .catch((error) => console.error(error));
+  };
+
+
+
+  // const addHandler = () =>{
+  //   if(
+  //     !contact.name ||
+  //     !contact.email ||
+  //     !contact.job ||
+  //     !contact.phone 
+  //   ){
+  //       setAlert("فیلد نمیتواند خالی باشد");
+  //       return
+  //   }
+  //   setAlert("");
+  //   const newContact = { ...contact, id:v4()};
+  //   setContacts((contacts) => [...contacts , newContact]);
+  //   setContact({
+  //     name:"",
+  //     email:"",
+  //     job:"",
+  //     phone:"",
+  //   });
+  //   }
 
     const deleteHandler = (id) =>{
-      const newContacts = contacts.filter((contact) => contact.id !== id);
-      setContacts(newContacts);
+  api
+    .delete("/users/"+ id ,{userData})
+    .then((res) => setContact(res.data))
+    .catch((error) => console.error(error));
     };
 
   return (
@@ -59,7 +79,7 @@ function Contacts() {
       <div className={styles.input}>
         {inputs.map((input , index) =>(
           <input 
-          key={index}
+            key={index}
             type={input.type}
             placeholder={input.placeholder}
             name={input.name}
