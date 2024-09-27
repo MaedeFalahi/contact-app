@@ -5,9 +5,9 @@ import styles from "./module/ContactsList.module.css";
 import {  useContext  } from 'react';
 import { DataContext } from "../context/UserProvider";
 
-function ContactsList({ deleteHandler}) {
+function ContactsList() {
 
-    const { userData  } = useContext(DataContext);
+    const { userData , deleteHandler  } = useContext(DataContext);
     
     // console.log(userData)
   return (

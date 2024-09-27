@@ -1,14 +1,17 @@
 import { createContext , useEffect , useState } from "react";
 
+import api from '../services/config';
 import axios from "axios";
+import Contacts from "../Components/Contacts";
 
 export const DataContext = createContext();
 
 
 function UserProvider({ children  }) {
 
+  const [contacts , setContacts] = useState([]);
     const [userData , setUserData] = useState([]);
-    const [contacts , setContacts] = useState({
+    const [contact , setContact] = useState({
       id: "",
       name:"",
       email:"",
@@ -16,42 +19,59 @@ function UserProvider({ children  }) {
       phone:"",
     });
 
-    const userTitle = {
-      name: contacts.name,
-      job: contacts.job,
-      email: contacts.email,
-      phone: contacts.phone,
+
+    const changeHandler = (event) =>{
+      const name = event.target.name;
+      const value = event.target.value;
+  
+      setContact((contact) => ({...contact , [name] : value}));
     }
+
+    const userTitle = {
+      name: contact.name,
+      job: contact.job,
+      email: contact.email,
+      phone: contact.phone,
+    }
+
+
 
     useEffect(() =>{
       axios.get('http://localhost:8000/users')
       .then((res) => setUserData(res.data));
     },[])
 
+
+    const GetData = () =>{
+      axios.get('http://localhost:8000/users')
+      .then((res) => setUserData(res.data));
+
+  };
+  GetData()
+
     const deleteHandler = (id) =>{
-      
       api
         .delete("/users/"+ id ,{userTitle})
-        .then((res) => setUserData(res.data))
-        .catch((error) => console.error(error));
+        .then(() => GetData())
+        .catch((error) => console.log(error));
         };
 
 
-    const addHandler = (e) =>{
-      e.preventDefault();
+    const addHandler = () =>{
       api
-      .post("/users" ,{userTitle})
-      .then((res) => setUserData(res.data))
-      .catch((error) => console.error(error));
+      .post("/users/" ,{ contact})
+      .then(() => GetData())
+      .then((res) => setContacts(res.data))
+      .catch((error) => console.log(error.data));
     };
 
 
-
+console.log(contacts)
 
 
 
   return (
-    <DataContext.Provider value={{ userData , setUserData }}>
+    <DataContext.Provider value={{ userData , setUserData , deleteHandler , addHandler , contacts , setContacts }}>
             {children}
     </DataContext.Provider>
     )
