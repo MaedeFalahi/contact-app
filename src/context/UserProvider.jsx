@@ -20,22 +20,6 @@ function UserProvider({ children  }) {
     });
 
 
-    const changeHandler = (event) =>{
-      const name = event.target.name;
-      const value = event.target.value;
-  
-      setContact((contact) => ({...contact , [name] : value}));
-    }
-
-    const userTitle = {
-      name: contact.name,
-      job: contact.job,
-      email: contact.email,
-      phone: contact.phone,
-    }
-
-
-
     useEffect(() =>{
       axios.get('http://localhost:8000/users')
       .then((res) => setUserData(res.data));
@@ -47,11 +31,11 @@ function UserProvider({ children  }) {
       .then((res) => setUserData(res.data));
 
   };
-  GetData()
+
 
     const deleteHandler = (id) =>{
       api
-        .delete("/users/"+ id ,{userTitle})
+        .delete("/users/"+ id ,{contact})
         .then(() => GetData())
         .catch((error) => console.log(error));
         };
@@ -59,19 +43,23 @@ function UserProvider({ children  }) {
 
     const addHandler = () =>{
       api
-      .post("/users/" ,{ contact})
+      .post("/users/" ,{ 
+        name: contact.name,
+        job: contact.job,
+        email: contact.email,
+        phone: contact.phone})
+      .then((res) => console.log(res.data))
       .then(() => GetData())
-      .then((res) => setContacts(res.data))
       .catch((error) => console.log(error.data));
     };
 
 
-console.log(contacts)
+
 
 
 
   return (
-    <DataContext.Provider value={{ userData , setUserData , deleteHandler , addHandler , contacts , setContacts }}>
+    <DataContext.Provider value={{ userData , setUserData , deleteHandler , addHandler , contacts , setContact , contact}}>
             {children}
     </DataContext.Provider>
     )

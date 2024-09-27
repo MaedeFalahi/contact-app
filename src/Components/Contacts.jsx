@@ -13,71 +13,17 @@ import { DataContext } from "../context/UserProvider";
 function Contacts() {
 
 
-  const { userData ,addHandler  , contacts , setContacts , changeHandler} = useContext(DataContext);
+  const {addHandler  , contacts , setContact } = useContext(DataContext);
 
-// console.log(userData)
-
-
-
-  // const [contacts , setContacts] = useState([]);
   const [alert , setAlert] = useState("");
-  // const [contact , setContact] = useState({
-  //   id: "",
-  //   name:"",
-  //   email:"",
-  //   job:"",
-  //   phone:"",
-  // });
 
 
+  const changeHandler = (event) =>{
+    const name = event.target.name;
+    const value = event.target.value;
 
-
-
-
-  // const userData = {
-  //   name: contact.name,
-  //   job: contact.job,
-  //   email: contact.email,
-  //   phone: contact.phone,
-  // };
-
-  // const addHandler = (e) =>{
-  //   e.preventDefault();
-  //   api
-  //   .post("/users" ,{userData})
-  //   .then((res) => setContact(res.data))
-  //   .catch((error) => console.error(error));
-  // };
-
-
-
-  // const addHandler = () =>{
-  //   if(
-  //     !contact.name ||
-  //     !contact.email ||
-  //     !contact.job ||
-  //     !contact.phone 
-  //   ){
-  //       setAlert("فیلد نمیتواند خالی باشد");
-  //       return
-  //   }
-  //   setAlert("");
-  //   const newContact = { ...contact, id:v4()};
-  //   setContacts((contacts) => [...contacts , newContact]);
-  //   setContact({
-  //     name:"",
-  //     email:"",
-  //     job:"",
-  //     phone:"",
-  //   });
-  //   }
-
-  //   const deleteHandler = (id) =>{
-  // api
-  //   .delete("/users/"+ id ,{userData})
-  //   .then((res) => setContact(res.data))
-  //   .catch((error) => console.error(error));
-  //   };
+    setContact((contact) => ({...contact, [name] : value}));
+  }
 
   return (
     <>
